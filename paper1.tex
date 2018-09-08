@@ -3,11 +3,11 @@
 \usepackage{graphicx}
 \begin{document}
 
+
 \title{Geometron: A Language for Graphical Communication}
+\author{Lafe Spietz}
 
-
-\abstract{This is a white paper describing the basic construction of Geometron and how it can be of use specifically to the quantum information community.  Geometron is a metalanguage based on discrete geometric actions used to build symbols in a systematic way.  The basis of Geometron is the Geometron Virtual Machine(GVM), a purely geometric virtual machine in which points in space map to actions which have geometric meaning.  This paper first motivates the work by surveying existing languages used in the quantum information community, then describes the ideas behind the GVM and gives examples of how it is used in practical work.  A deep dive section into the exact structure and implementation of the GVM used here is then provided.  Finally the workflow is described which members of the QI community can immediately start to implement, and then future work is described which can leverage the power of geometry based thinking about quantum information for both better communication between the people in the community and better ways to program quantum computers more efficiently.  
-}
+\abstract{This is a white paper describing the basic construction of Geometron and how it can be of use specifically to the quantum information community.  Geometron is a metalanguage based on discrete geometric actions used to build symbols in a systematic way.  The basis of Geometron is the Geometron Virtual Machine(GVM), a purely geometric virtual machine in which points in space map to actions which have geometric meaning.  This paper first motivates the work by surveying existing languages used in the quantum information community, then describes the ideas behind the GVM and gives examples of how it is used in practical work.  A deep dive section into the exact structure and implementation of the GVM used here is then provided.  Finally the workflow is described which members of the QI community can immediately start to implement, and then future work is described which can leverage the power of geometry based thinking about quantum information for both better communication between the people in the community and better ways to program quantum computers more efficiently.}
 
 \section{Motivation}
 
@@ -45,7 +45,7 @@
 
     Rather than trying to formalize the math of this idea, I will dive in and describe the specifics of the Geometron Hypercube used in all the work documented here.  This consists of two cubes, each with 8x8x8 = 512 cells.  Each cell has an address, which consists of three coordinates for the cell and one for which cube the cell is in.  Thus the first cell of the first cube is 0, the highest cell in that cube is 0777, and in the second cube it's 0 to 01777.  I use a leading zero here to denote that these numbers are base 8.  Using base 8 in JavaScript is easy, as JavaScript recognizes the leading zero, as do most c-like languages.   One of the two cubes represents actions, and the other represents symbols for the actions in the first cube.  The contents of each cell are arrays of addresses of cells.  
 
-    The choices made here are in some sense arbitrary: 8 could just as well be 4 or 16 or even some random prime number.  But the point of this approach to language design is to choose numbers and structures which are well suited to easily being interacted with by the human mind.  A 8x8x8 cube can be divided into``tablets", each of which is 8X in size.  
+    The choices made here are in some sense arbitrary: 8 could just as well be 4 or 16 or even some random prime number.  But the point of this approach to language design is to choose numbers and structures which are well suited to easily being interacted with by the human mind.  A 8x8x8 cube can be divided into``tablets'', each of which is 8X in size.  
 
     Other cubes in the hypercube can include one which is the physical action of encoding data in a substrate with some sort of robot, generally at 02xxx, descriptions which can be put in alt text of images for accessibility which are generally put at 03xxx.  A whole cube can be taken for specific applications of any kind.  One useful instance would be encoding all the radical of Chinese characters in a cube, with layers building up from simple strokes to compound strokes to simple radicals to the most complex radicals.  This could then form the basis of a replacement for the CJK unicode which destroys much of the artistic beauty of those writing systems.  Also, unlike Unicode, these glyphs would all have stroke order and specific stroke geometry and construction encoded in them, meaning the code could be directly translated to motion of a brush-holding robot, again a whole world of beautiful use not accessible even in principle with Unicode.
 
@@ -66,7 +66,7 @@
 
 
 
-    Glyphs consist of sequences of actions.  They are expressed as strings in the form of base 8 addresses separated by commas, e.g.``0300,0341,0333,0341,".  Some addresses in the action cube consist of glyphs, which in turn refernce other glyphs or actions.  Thus many levels of recursion are possible and used routinely.  This is a huge part of the power of this system over existing graphical systems like Adobe Illustrator.  Adding glyphs to the shape table and using those glyphs is not like just copying and pasting shapes in Illustrator.  It is in fact more like building up cell hierarchy in a electronic layout CAD program. 
+    Glyphs consist of sequences of actions.  They are expressed as strings in the form of base 8 addresses separated by commas, e.g.``0300,0341,0333,0341,''.  Some addresses in the action cube consist of glyphs, which in turn refernce other glyphs or actions.  Thus many levels of recursion are possible and used routinely.  This is a huge part of the power of this system over existing graphical systems like Adobe Illustrator.  Adding glyphs to the shape table and using those glyphs is not like just copying and pasting shapes in Illustrator.  It is in fact more like building up cell hierarchy in a electronic layout CAD program. 
     
 
 
@@ -93,7 +93,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \caption{Figure 3. Bottom Tablet.  This is split between the bottom part of the printable 7 bit ASCII code and various system actions which control things like cursor position while editing glyphs. }
 \end{figure}
 
-    The bottom tablet in address space from 0 to 077 consists of ``root magick'' actions from 06 through 037 and the first part of the ASCII from 040 to 077.  Root magick consists of actions which are not purely geometric in nature, which interact with the Geometron software.  Examples of these are ``move cursor forward", ``move cursor back", zoom and pan of the view of the glyph, moving through the shape table in the shape table editor etc.  As with all other parts of the Action Cube, each action has a symbol in the Symbol Cube.  The first six elements of the bottom tablet are left open for storage of HTML and creation scripts in more self-contained versions of the code(to be discussed elsewhere).  
+    The bottom tablet in address space from 0 to 077 consists of ``root magick'' actions from 06 through 037 and the first part of the ASCII from 040 to 077.  Root magick consists of actions which are not purely geometric in nature, which interact with the Geometron software.  Examples of these are ``move cursor forward'', ``move cursor back'', zoom and pan of the view of the glyph, moving through the shape table in the shape table editor etc.  As with all other parts of the Action Cube, each action has a symbol in the Symbol Cube.  The first six elements of the bottom tablet are left open for storage of HTML and creation scripts in more self-contained versions of the code(to be discussed elsewhere).  
 
 
 \begin{figure}
@@ -101,7 +101,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \caption{First tablet from bottom: top of 7 bit ASCII.  Backspace at 0177 is excluded and replaced by a ``do nothing'' action.  Hence range is from ``at'' symbol(0100) through tilde(0176), or 0x40-0x7E hexidecimal.}
 \end{figure}
 
-    The second tablet is the top part of the 7 bit ASCII code, from 0100(the @ symbol) to 0176(tilde ~).  These addresses are used for different things in different contexts. In the storage of the Hypercube, they each contain a single address, which creates a map from all the possible keys including shift keys on a standard keyboard, and this is used to make custom Geometron keyboards of all kinds, and makes it easy to edit those keyboards, making infinity of versions of the keyboard.  Depending on context, however, the ASCII actions can also add letters to the ``Word stack", a global string variable which gets dumped out into printed words in various contexts.
+    The second tablet is the top part of the 7 bit ASCII code, from 0100(the @ symbol) to 0176(tilde ~).  These addresses are used for different things in different contexts. In the storage of the Hypercube, they each contain a single address, which creates a map from all the possible keys including shift keys on a standard keyboard, and this is used to make custom Geometron keyboards of all kinds, and makes it easy to edit those keyboards, making infinity of versions of the keyboard.  Depending on context, however, the ASCII actions can also add letters to the ``Word stack'', a global string variable which gets dumped out into printed words in various contexts.
 
 
 
@@ -112,7 +112,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \caption{Shape table.}
 \end{figure}
 
-    The third tablet is the shape table.   This begins with ``base shapes'' from 0200 through 0217 which are glyphs that are used so often that it makes sense to keep them mostly fixed.  This includes the ``cursor glyph'' which is at address 0207, and is how spelling of glyphs and the live cursor correlate with each other.  Also, the square is at 0200 which is used so more than pracicaly any other shape since it encapsulates the symbol glyphs.  The range from 0220 through 0247 are the standard``shape table'' which most language instances use.  The work flows described later in this paper are based on these shape tables, and that is how languages like ``quantum gates'' or``superconducting circuits'' are encoded.  These tables are all of the format of newline delimited sets of glyphs with an address in the format ``0200:0362,0203,0334,0203,0334,0203,0334,0203,0334,0354,".  
+    The third tablet is the shape table.   This begins with ``base shapes'' from 0200 through 0217 which are glyphs that are used so often that it makes sense to keep them mostly fixed.  This includes the ``cursor glyph'' which is at address 0207, and is how spelling of glyphs and the live cursor correlate with each other.  Also, the square is at 0200 which is used so more than pracicaly any other shape since it encapsulates the symbol glyphs.  The range from 0220 through 0247 are the standard ``shape table'' which most language instances use.  The work flows described later in this paper are based on these shape tables, and that is how languages like ``quantum gates'' or``superconducting circuits'' are encoded.  These tables are all of the format of newline delimited sets of glyphs with an address in the format ``0200:0362,0203,0334,0203,0334,0203,0334,0203,0334,0354,".  
 
 
 
@@ -136,7 +136,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 
-    When actions are carried out, they manipulate global geometric variables, which are expressed by the state of a global graphical cursor.  The cursor is itself a glyph like any other, and is located at address 0207, in the base rows(0200-0217) of the shape tablet.  The symbol glyph 01207 is a small circle, which looks like the period in traditional Chinese writing.  The cursor has a base which is located at (x,y), a direction which shows the angle``theta", wings which show the step angle thetaStep, and a pair of dots which show the scale factor called scaleFactor.  
+    When actions are carried out, they manipulate global geometric variables, which are expressed by the state of a global graphical cursor.  The cursor is itself a glyph like any other, and is located at address 0207, in the base rows(0200-0217) of the shape tablet.  The symbol glyph 01207 is a small circle, which looks like the period in traditional Chinese writing.  The cursor has a base which is located at (x,y), a direction which shows the angle ``theta'', wings which show the step angle thetaStep, and a pair of dots which show the scale factor called scaleFactor.  
 
 
 
@@ -195,10 +195,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \caption{Figure 12. The most basic drawing actions: dot, circle, line segment, arc.}
 \end{figure}
 
-
     There are numerous drawing actions which can be added to the Geometron Action Tablet, but the most basic self-contained geometric constructions are the dot, circle, arc and line segment.  These alone can be used to construct a very large class of diagrams, figures, symbols, etc.  
-
-
 
 \begin{figure}
 
@@ -227,7 +224,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 
-    While there are many actions not discussed here, this concludes a basic survey of the most critical components of the Geometron Hypercube, which shows its basic structure and how it can be useful as a general purpose tool to construct new graphical languages.  I will not move on to show by example what this tool can do, focusing on its utility for the quantum information community.
+    While there are some actions not discussed here, this concludes a basic survey of the most critical components of the Geometron Hypercube, which shows its basic structure and how it can be useful as a general purpose tool to construct new graphical languages.  I will not move on to show by example what this tool can do, focusing on its utility for the quantum information community.
 
 
 
@@ -374,7 +371,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 
-    Glyphs are drawn using a function called drawGlyph(), which acts on strings in the Geometron Bytecode Format.  The Geometron Bytecode Format consists of a sequence of octal numbers separated by commas in a string.  E.g. the glyph representing the ``hello world'' of geometry, the vesica pisces, is ``0341,0333,0341,".  A trailing comma is optional.  Thus if we write drawGlyph("0341,0333,0341,") from the console when Geometron is running in the browser, the glyph will be split up into an array of strings each of which represents a number, then each number will get converted to int and sent to doTheThing() in order.  This will lead to drawing a circle one ``side'' in radius, moving by ``side'' in the x direction to the right, then drawing another circle of the same radius.   
+    Glyphs are drawn using a function called drawGlyph(), which acts on strings in the Geometron Bytecode Format.  The Geometron Bytecode Format consists of a sequence of octal numbers separated by commas in a string.  E.g. the glyph representing the ``hello world'' of geometry, the vesica pisces, is ``0341,0333,0341,''.  A trailing comma is optional.  Thus if we write drawGlyph("0341,0333,0341,") from the console when Geometron is running in the browser, the glyph will be split up into an array of strings each of which represents a number, then each number will get converted to int and sent to doTheThing() in order.  This will lead to drawing a circle one ``side'' in radius, moving by ``side'' in the x direction to the right, then drawing another circle of the same radius.   
 
 
 
@@ -392,7 +389,8 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
         currentSVG += Math.round(x).toString();
         currentSVG += "\" cy = \"";
         currentSVG += Math.round(y).toString();
-        currentSVG += "\" r = \"" + side.toString() + "\" stroke = \"" + currentStroke + "\" stroke-width = \"" + (ctx.lineWidth).toString() + "\" ";
+        currentSVG += "\" r = \"" + side.toString() + "\" stroke = \"" + currentStroke 
+            + "\" stroke-width = \"" + (ctx.lineWidth).toString() + "\" ";
         currentSVG += "fill = \"none\" />\n";		
     }
 \end{verbatim}
@@ -406,7 +404,9 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
     The main working screen of Geometron includes a large number of features which can be subtracted in some instances for specific applications.  The whole structure of the code is self-replicating, meaning that just one small PHP script needs to be copied to a web server, and that will fetch all the rest of the code from another existing Geometron server and set up the whole system locally.  
 
-    The basic operation of Geometron consists of a user placing their cursor in a input in the upper left corner of the browser, then hitting keys which trigger a JavaScript event.  This event maps keys to actions, which can be anywhere in the Geometron Hypercube.  The value of these actions is itself stored in the hypercube, and can be changed on the fly as needed for specific applications.
+    The basic operation of Geometron consists of a user placing their cursor in a input in the upper left corner of the browser, then hitting keys which trigger a JavaScript event.  This event maps keys to actions, which can be anywhere in the Geometron Hypercube.  The value of these actions is itself stored in the hypercube, and can be changed on the fly as needed for specific applications.  Creating a new glyph in this way is very similar to creating a sequence of ASCII characters in a text document.  When one hits most keys, they add on action to where the glyph is, but arrow keys and backspace move the cursor through the glyph or delete an action.  As the cursor moves through a glyph, the user will see both the circle cursor move through the glyph spelling at the bottom of the screen and see the graphical cursor move its location and format through the sequence of the glyph.  This is very important, as it allows one to see the current state of the global variables along the sequence of actions before inserting an action in the middle of a glyph.  
+
+
 
 
 \section{Workflow and Applications}
@@ -415,6 +415,13 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 There are two ways to parse the work flow of the Geometron system.  We can consider the path taken by a new user, which is what is sketched in the above paragraph.  In this flow, a new user starts out seeing this as just a free graphics library, then moves up to making their own graphics, and finally to building their own graphics languages.  The other way to consider the work flow is to trace the path of the information as it would flow for an expert user.  In this path, a Geometron instance is created by cloning all the code using the script replicator.php onto a new directory on a web server with PHP istalled.  
 
+
+Full workflow:
+
+Read this paper(or skim it and look at the pictures) 
+download free graphics for use in your documents from graphics library
+try out basic movements, drawing actions, make circles, lines, and gates and circuits
+make your own graphics on existing instance shared with you, publish them and use them as needed, learn to read the feeds of other users to also use their graphics productions
 create new instance:
 replicator.php
 navigate to glyph editor, test:
@@ -434,13 +441,18 @@ svg/svg[datecode].svg --> web, adobe creative suite, microsoft office suite, ink
 (PNG PUBLISH)
 save as: filename.png --> powerpoint, word, latex, web
 web links--> svgfeed.php --> index.php?path=mynewpath/&url=mynewpath/svg/svg[datecode].svg
+share and spread to other users, teaching them how to create an instance, use it, modify it and spread it themselves so that the entire system self replicates and evolves based on user needs.  
+
+deep dive into code, improve it
+get web developers to work over the CSS of your instance to brand it and make it fit with the rest of your web presence, build replicator with instructions for how to fork on your page. 
+tell other people who will go back to step 1.
 
 
 
+Note that as this system propagates through the quantum information community, the flow of code will form a branching tree, with the earliest adopters of the system being the largest and deepest branches.  No special code skills are required for a researcher, group, institution or even lone hobbyist to have this role, just determination and artistic skill.  A motivated individual can have a large impact on the overall structure of the quantum information field by diving deeply into this system, building a large feed of graphics, and spreading those graphics enthusiastically to the rest of the community.  From a business and marketing standpoint, building an instance which people rely on  and which is branded with your company and biased toward the technology you're working on can have a huge global impact on your reach in the field without spending any money other than the time of everyone involved to learn the system.  
 
 
 
-    Building and sharing new graphical languages, new symbols.  Using pastebin, sharing code on your page.
 
 
 
@@ -460,6 +472,9 @@ Hire me to set up a local node of Network
 \section{Future Work and Potential Impact}
 
 
+point to the other two main white papers: 
+    Self Replicating Graphical Social Network for QI and 
+    Quantum Visualization and Control in HTML
 
     microblogging for real time technical graphical communication
 
@@ -477,7 +492,7 @@ Hire me to set up a local node of Network
 
 
 
-Creating direct connections between the web browser and geometry of Hilbert space, to cut out the``middle man'' between a quantum user and quantum circuit.  Real time quantum controls.    
+Creating direct connections between the web browser and geometry of Hilbert space, to cut out the ``middle man'' between a quantum user and quantum circuit.  Real time quantum controls.    
 
 
 
@@ -488,11 +503,6 @@ Creating direct connections between the web browser and geometry of Hilbert spac
 
 
     GVM for Galois groups, geometrizing the problems of factorization so that people can develop new algorithms for factoring using GVM.
-
-
-
-
-    
 
 
 
