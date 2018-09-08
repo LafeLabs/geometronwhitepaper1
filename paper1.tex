@@ -13,15 +13,16 @@
 
     Graphical communication is a fundamental component of building any new technology.  Often the more unfamiliar a technology is, the more we need to rely on simple cartoons and diagrams to tell others about it.  This communication between the people who create the new ideas and other people is fundamental, and can either make or break a new technology.   
 
-    Our existing theoretical models for understanding new machines tend to ignore how machines propagate through the human population, but I believe this is a mistake.  These questions get banished from technical theoretical problems because we have arbitrarily divided who thinks about what problems up into``engineering",``humanities",``marketing", etc.  We like to think that quantum computing will either succeed or fail based on some intrinsic technical merit, but none of us will ever succeed in this venture without clear communication between the advocates of the technology and the sponsors(funding agents, investors, upper managers).  Those people expect very simple and clear stories to be told in a mostly graphical format via PowerPoint, and that story must be more compelling than that of competing technologies.  Thus clear graphical communication is fundamental to the very survival of a new technology.  
+    Our existing theoretical models for understanding new machines tend to ignore how machines propagate through the human population, but I believe this is a mistake.  These questions get banished from technical theoretical problems because we have arbitrarily divided who thinks about what problems up into ``engineering", ``humanities", ``marketing", etc.  We like to think that quantum computing will either succeed or fail based on some intrinsic technical merit, but none of us will ever succeed in this venture without clear communication between the advocates of the technology and the sponsors(funding agents, investors, upper managers).  Those people expect very simple and clear stories to be told in a mostly graphical format via PowerPoint, and that story must be more compelling than that of competing technologies.  Thus clear graphical communication is fundamental to the very survival of a new technology.  
+
 
     Graphical communication is also used to propagate our ideas outside of narrow sub-fields, expanding the number of minds focused on the problem.  What starts as a tiny minority of presenters at the American Physical Society March Meeting has taken over a huge fraction of all physics conferences, thanks in part to spreading the ideas of quantum information effectively in these venues.  This also depends on clear and simple graphics, as that is the only way to get a message across in a 10 minute talk.  
 
 
     As a technology transitions from the lab to the market place, graphical communication becomes even more critical, as creators of technology vie for a very limited attention span of potential users, almost entirely via web-based communication.  Quantum computing is now at a stage where it is attracting both user dollars and investor dollars, and a quick survey of leading commercial quantum computer ventures shows that very simple sequences of pictorial communication are becoming dominant.    
 
-
     Quantum Mechanics and quantum information science have always been particularly dependent on custom graphical languages.  Two examples that immediately come to mind are Feynman diagrams and the Bloch Sphere.  In both cases, ideas are expressed for which we also have words, numerical simulations and algebraic equations.  However in both cases, reducing all that to a simple cartoon totally changes how we are able to engage with problems, and makes a huge difference both in the ability to learn and do research in the respective problems they address.
+
 
     As quantum computing technology has become a part of the computer industry over the last few years, we have seen a number of efforts to build languages targeted specifically at programming quantum processors.  These languages are generally intended as part of a ``quantum stack'' which goes from the physical qubit layer up to the highest level where the end user will ultimately be solving their problem in quantum chemistry or number theory or whatever.  Rigetti Computing, IBM, Microsoft, and several other companies have all created such languages.  All of them are very clearly heavily influenced by the history of software written for classical information processors. The languages tend to look like C, Python, or Fortran, and to think about information the same way we all learned in classical computing, in terms of numbers and gates.  
 
@@ -51,7 +52,7 @@
 
 \begin{figure}
 
-\includegraphics{figures/figure1_cubes.png}
+\includegraphics[width=\linewidth]{figures/figure1_cubes.png}
 
 \caption{Action and symbol cube. Two cubes of course does not make a hypercube, it should be 8 cubes, but most of those are left for future additions to the full 8x8x8x8 hypercube of 4096 elements.}
 \end{figure}
@@ -80,14 +81,14 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 \begin{figure}
-\includegraphics{figures/fig2cubestack.png}
+\includegraphics[width=\linewidth]{figures/fig2cubestack.png}
 \caption{Tablet layers.}
 \end{figure}
 
     The Geometron Action Cube is divided up into layers, called tablets, each of which is a 8x8 array, much like a chess board.  Those tablets are then broken up into rows of 8 actions, which we attempt to group in a rational way.   
 
 \begin{figure}
-\includegraphics{figures/figure3_bottomTablet.png}
+\includegraphics[width=\linewidth]{figures/figure3_bottomTablet.png}
 
 \caption{Figure 3. Bottom Tablet.  This is split between the bottom part of the printable 7 bit ASCII code and various system actions which control things like cursor position while editing glyphs. }
 \end{figure}
@@ -96,7 +97,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 \begin{figure}
-\includegraphics{figures/figure4_asciitablet.png}
+\includegraphics[width=\linewidth]{figures/figure4_asciitablet.png}
 \caption{First tablet from bottom: top of 7 bit ASCII.  Backspace at 0177 is excluded and replaced by a ``do nothing'' action.  Hence range is from ``at'' symbol(0100) through tilde(0176), or 0x40-0x7E hexidecimal.}
 \end{figure}
 
@@ -106,7 +107,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \begin{figure}
 
-\includegraphics{figures/figure5_shapetable.png}
+\includegraphics[width=\linewidth]{figures/figure5_shapetable.png}
 
 \caption{Shape table.}
 \end{figure}
@@ -117,7 +118,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \begin{figure}
 
-\includegraphics{figures/figure6_actionTablet.png}
+\includegraphics[width=\linewidth]{figures/figure6_actionTablet.png}
 
 \caption{Action Tablet}
 \end{figure}
@@ -128,7 +129,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 \begin{figure}
-\includegraphics{figures/figure7_globalCursor.png}
+\includegraphics[width=\linewidth]{figures/figure7_globalCursor.png}
 \caption{Global graphical cursor}
 \end{figure}
 
@@ -141,33 +142,25 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 \begin{figure}
-\includegraphics{figures/figure8_symmetries.png}
+\includegraphics[width=\linewidth]{figures/figure8_symmetries.png}
 \caption{Basic symmetry groups.  These glyphs correspond to setting the angle step to be 90 degrees($\frac{\pi}{2}$ radians), 72 degrees($\frac{\pi}{5}$ radians), or 60 degrees($\frac{\pi}{6}$ radians). Their addresses are 0304, 0305, and 0306. }
 \end{figure}
 
 
-
-
     Angles of rotation are discrete and all start from some basic rotation groups, shown in Figure 8.  These are based on 4 fold, 5-fold, and 6-fold symmetry.  A further set of actions includes bisecting and trisecting angles as well as their opposite, which allow for symmetry groups of multiples of these basic numbers and their prime factors(3 and 2 can be made from doubling 60 degrees to 120 or 90 degrees to 180.)  Note that while classical compass and straightedge geometry is a guide in the construction of geometron, I have chosen to ignore it when the computer allows and it is convenient as in the case of trisecting arbitrary angles(not possible in classical construction).      
-
-
-
 
     A natural way to extend Geometron for some specific applications is to add other symmetry groups to the action row 030x, such as 7 or some other weird higher prime number.  Extending these types of operation to much larger numbers might be a path to implementing factorization of large integers in quantum geometron using Galois theory, which will be discussed in another white paper.
 
 
 \begin{figure}
 
-\includegraphics{figures/figure9_scales.png}
+\includegraphics[width=\linewidth]{figures/figure9_scales.png}
 
 \caption{Scale factors.  $\sqrt{2}$, $\phi = \frac{1 + \sqrt{5}}{2}$, $\sqrt{3}$,2, 3, and 5, which are at addresses 0310, 0311, 0312, 0313, 0314 and 0315.}
 \end{figure}
 
 
-
-
     Scale factors are chosen to conveniently relate to the standard angles used in the symmetries and their close relatives.  They are on the row 031x in the Action Tablet, and are organized in order of size of the scaleFactor value.  For instance the square root of two allows us to easily make a 45 degree isosceles triangle by first setting stepAngle to 45 degrees by bisecting 90 degrees, then with scaleFactor equal to square root of two, one application of the``increase scale'' action at 0337 increases the side length by square root of two, making it the right length for the hypotenuse no matter what the current side value is.  Similarly, the square root of 3 allows for easy and rapid construction of 30/60/90 right triangles at any scale, and smooth navigation of hexagons and equilateral triangles, and the Golden Ratio provides the same for pentagons, pentagrams, Penrose Tiles etc.  
-
 
 
 \begin{figure}
@@ -176,8 +169,6 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \caption{Figure 10. Layers/colors.  These are at addresses 0320 through 0327.}
 \end{figure}
-
-
 
 
     The action row 032x selects layers, which each have a space in a global style structure, and determine width and color of lines as well as fill color. In the web based Geometron presented here, this simply maps to style in a canvas or SVG element.  However, this can be easily adapted for other more literal layer concepts if we are constructing Geometron instances for things like nanofabrication and other literal physical implementations.  By default, the colors roughly follow the rainbow.
@@ -194,8 +185,6 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \end{figure}
 
 
-
-
     The movement row of the Action Tablet is at 033x, and includes moving the position either forward or backward on the direction``theta'' and along the direction of either of the``wings'' of the cursor, in the direction``theta + thetaStep'' or ``theta - thetaStep".  The rotation actions represent either increasing or decreasing theta by thetaStep.  Plus and minus represent increasing or decreasing ``side'' by a multiplicative factor of scaleFactor.  
 
 
@@ -205,8 +194,6 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \caption{Figure 12. The most basic drawing actions: dot, circle, line segment, arc.}
 \end{figure}
-
-
 
 
     There are numerous drawing actions which can be added to the Geometron Action Tablet, but the most basic self-contained geometric constructions are the dot, circle, arc and line segment.  These alone can be used to construct a very large class of diagrams, figures, symbols, etc.  
@@ -219,8 +206,6 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \caption{Figure 13. Vesica piscis, the ``hello, world'' of geometric language.}
 \end{figure}
-
-
 
 
     The tradition in teaching and learning of computer programming languages of creating a program to print ``hello, World'' can be extended to geometric languages with the vesica piscis(from the Latin for fish bladder), which is two circles each centered on the other of same radius.  Technically the vesica piscis is the intersection area of the two circles, but since the double circle glyph is maximally simple we use that as the Hello, World of Geometron.
@@ -247,11 +232,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 
-\section{
-3. Examples}
-
-
-
+\section{Examples}
 
 
     As with any language, there is no substitute for immersion and examples when learning Geometron.  Ideally the reader will be able to get guidance in recreating all these examples live on the Web, but for the purposes of a static white paper, this will just be a guided tour of example glyphs in Geometron which try to highlight how it can be of use for the quantum information community.
@@ -380,13 +361,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
     Finally, no tour of graphical languages for quantum theory would be complete without a eample Feynman diagram.  The power of those simple cartoons to reduce the labor associated with calculating path integrals is a major motivating force for this work: it proves that the simple act of drawing a new type of cartoon can have a large impact in what workers in a computational field can achieve.  Figure 24 shows how a Feynman diagram is built up from constituent actions, which can be re-arranged to make other diagrams. 
 
-
-
-
-\section{
-4. Structure of Code}
-
-
+\section{Structure of Code}
 
 
     All the code that makes up the Geoemtron system designed to run in the browser, using standard HTML, CSS and JavaScript.  The one exception to this is communicating with the filesystem which is all done with PHP, and that is part of a social media structure which will be documented in another white paper.  
@@ -438,17 +413,28 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
     There are three main work flows I will discuss here.  The first is simply a free vector graphics library for the quantum information community, maintained at www.quantumart.org.  This is intended to be grown over time and to attempt to have as many commonly used symbols as possible, all explicitly in the Public Domain, with as many format choices as possible for very smooth use in existing graphics workflows.  The second is use of the specific graphical languages (geometron instances) for quantum information, which are also provided at www.quantumart.org.  These ``graphics factories'' can be used to rapidly create, publish, edit and share vector graphics using graphical languages specificlaly for QI.  This includes quantum logic gates, quantum circuits, Feynman diagrams, and graph theory diagrams. The third work flow is full instancing of the metalanguage, where the user creates their own graphical languages, both symbols and actions.  This is where the true power of this system will be unleashed, especially when paired with the technical micro-blogging software documented elsewhere.  
 
-    Public domain graphics library for quantum information science
+There are two ways to parse the work flow of the Geometron system.  We can consider the path taken by a new user, which is what is sketched in the above paragraph.  In this flow, a new user starts out seeing this as just a free graphics library, then moves up to making their own graphics, and finally to building their own graphics languages.  The other way to consider the work flow is to trace the path of the information as it would flow for an expert user.  In this path, a Geometron instance is created by cloning all the code using the script replicator.php onto a new directory on a web server with PHP istalled.  
 
+create new instance:
+replicator.php
+navigate to glyph editor, test:
+index.php
+go to tree, create a new branch on it:
+tree.php
+go to that branch and start editing it:
+index.php?path=mynewpath/
+edit the shape table:
+shapetableeditor.php?path=mynewpath/
+shapes.txt
+pastebin.com 
+actions, then symbols
+index.php?path=mynewpath/
+(PUBLISH)
+svg/svg[datecode].svg --> web, adobe creative suite, microsoft office suite, inkscape
+(PNG PUBLISH)
+save as: filename.png --> powerpoint, word, latex, web
+web links--> svgfeed.php --> index.php?path=mynewpath/&url=mynewpath/svg/svg[datecode].svg
 
-
-
-    Working with MS office suite workflow
-
-
-
-
-    Working with Adobe Illustrator and Inkscape
 
 
 
@@ -471,8 +457,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 Hire me to set up a local node of Network
 
 
-\section{
-Future Work and Potential Impact}
+\section{Future Work and Potential Impact}
 
 
 
