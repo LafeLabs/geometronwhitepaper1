@@ -450,21 +450,13 @@ Make a closed path, filled and unfilled.  The first thing to do is try making a 
 
 Now try making text the two ways that text is made in Geometron.  First put the cursor in the ``print'' field and just type some random keys.  You should see letters getting printed on the screen in the Geometron Font that I created, a simple and crude geometric font.  Note that the bytecode field at the bottom of the screen shows that the actions for these letters are in the range from 01040 through 01176. The other way to make text is to put the cursor in the field marked ``stack'', hit some random keys, then put the cursor back in the ``action'' field and hit the ``['' key, which is 0365 in bytecode.  This dumps any characters you put in the character stack into a text field, the size of which is set by the cursor ``side'' global variable. 
 
-Edit style JSON.  Click on the link on the main Geometron  
+The next thing to experiment with is editing the style JSON file.  This is acomplished by clicking the link marked ``stylejsoneditor.php''.  This links to an editor of a JSON(JavaScript Object Notation) file which holds the present values of all the layers' colors and linewidths.  Be sure to not change the locations of commas and quotation marks, these are critical for the JSON file to be recognized, but change the value of line0 for instance and you can control the linewidth of the default lines drawn.  This is probably the most commonly used aspect of this feature, being able to change linewidth.
 
-export a png, save it to your computer
+With this basic tour of functionality you are ready to actually get some useful files out of this system.  To do this, first click on the button marked ``EXPORT PNG''.  Then right click on the image and you can save or copy the png of what you made.  Of course, the PNG destroys the vector graphics nature of what you've made, it's just easier to share in more types of software.  To get the file in SVG format, click the button marked ``SAVE SVG''.  Now notice that the text field in the lower right corner of the screen has a bunch of code in it.  That is the contents of the SVG, which you can copy and paste into a text editor and save as filename.svg if you want, but the much simpler way to see your file is to click the link to the svg feed link, where it should be the top image.  Right click to save it.
 
-svae a svg, link to it, save it to your computer
+Once you are comforatble with the basics of Geometron, you should explore the tree.php file which has links to various language instances.  From there the next step is to get your own full instance of the Geometron system in your own directory on quantumart.org so that you can edit the code and try things without worrying about other users.  Then to really deploy the system you want to get a instance set up on your own web server and rebrand and retool the whole system for your specific applications, subjects, brand, and group of people.  You can also build a version of this on a local server behind a firewall for communication just inside your group, which I can help with.
 
-publish a svg link, share it so others can edit on server and publish edits and share them
-
-
-Build your own space on quantumart.org/yournamehere email me to set it up.  lafe@quantumart.org
-
-
-Build your own server, hire me, build a pi locally, build graphics, share and publish on web using a mirror, customize the language, build a physical node for the network in a conference room with a custom keyboard and a projector on a big screen 
-
-Customize your code for your brand and your research, publish it all, share your artwork as art 
+Hire me! 
 
 
 \begin{figure}
@@ -475,33 +467,6 @@ Customize your code for your brand and your research, publish it all, share your
 \end{figure}
 
 
-
-Full workflow:
-
-Read this paper(or skim it and look at the pictures) 
-download free graphics for use in your documents from graphics library
-try out basic movements, drawing actions, make circles, lines, and gates and circuits
-make your own graphics on existing instance shared with you, publish them and use them as needed, learn to read the feeds of other users to also use their graphics productions
-create new instance:
-replicator.php
-navigate to glyph editor, test:
-index.php
-go to tree, create a new branch on it:
-tree.php
-go to that branch and start editing it:
-index.php?path=mynewpath/
-edit the shape table:
-shapetableeditor.php?path=mynewpath/
-shapes.txt
-pastebin.com 
-actions, then symbols
-index.php?path=mynewpath/
-(PUBLISH)
-svg/svg[datecode].svg $\rightarrow$ web, adobe creative suite, microsoft office suite, inkscape
-(PNG PUBLISH)
-save as: filename.png $\rightarrow$ powerpoint, word, latex, web
-web links$\rightarrow$ svgfeed.php $\rightarrow$ index.php?path=mynewpath/&url=mynewpath/svg/svg[datecode].svg
-share and spread to other users, teaching them how to create an instance, use it, modify it and spread it themselves so that the entire system self replicates and evolves based on user needs.  
 
 deep dive into code, improve it
 get web developers to work over the CSS of your instance to brand it and make it fit with the rest of your web presence, build replicator with instructions for how to fork on your page. 
@@ -515,48 +480,9 @@ Note that as this system propagates through the quantum information community, t
 
 
 
-
-    Graphical documentation of quantum computing languages, simplifying the construction of programs as well as the sharing of them between various types of researcher or expert.
-
-
-
-
-    Running on a local machine, Connecting with Jupyter notebooks and LaTex
-
-
-Hire me to set up a local node of Network
-
-human workflow: marketing, senior management, frontend web development, fabrication people, measurement researchers, theorists, investors, program managers, public, students, 
-
-file structure:
-
-*.php
-bytecode/*.txt
-svg/*.txt
-javascript/*.txt
-css/*.txt
-html/*.txt
-json/*.txt
-php/*.txt
-
-
-files in workflow:
-index.php
-
-shapetableeditor.php
-shapes.txt
-
-stylejson.txt
-currentjson.txt
-tree.php
-
-svg/svg[datecode].txt
-
-
-
 \section{Future Work and Implications}
 
-Try to imagine learning about quantum two level systems without the Bloch sphere, or basic gates without the graphical representation of control not or quantum electrodynamics without Feynman diagrams.  These graphical tools are some of the most powerful we have at our disposal(including computers and lab equipment even) as quantum information scientists.  Imagine if the bar to build a new graphical language like this were lowered to where a graduate student could easily make a new one on their smart phone while waiting for the bus.  We have no idea just how much computational power will be unleashed by creating a free open graphical network for this kind of information, but the only way to find out is to build it.  
+Try to imagine learning about quantum two level systems without the Bloch sphere, or basic quantum logic without the graphical representation of control not or quantum electrodynamics without Feynman diagrams.  These graphical tools are some of the most powerful we have at our disposal(including computers and lab equipment even) as quantum information scientists.  Imagine if the bar to build a new graphical language like this were lowered to where a graduate student could easily make a new one on their smart phone while waiting for the bus.  We have no idea just how much computational power will be unleashed by creating a free open graphical network for this kind of information, but the only way to find out is to build it.  
 
 
 The work presented in this paper is simply a factory for graphics.  The next of the three white papers that present this work will deal with building a social network based on sharing information created with Geometron.  It is worth noting here that the World Wide Web was originally built by Tim Bernars Lee at CERN specifically to help physicists communicate with one another and to organize their research information.  I believe that it is a rational next step for the Web to build another such extension.  This next white paper will describe the Geomtron Network, which is a self-replicating system that allows for totally free rapid sharing of graphics and integration of math-formatted text with them.  It is integrated into a slide sharing system which can replace PowerPoint for rapid online sharing of graphics, and a paper authoring system which integrates with $\LaTeX$, and a system for making vector graphics from standard function plots we use frequently.  The key idea of this system is that the current most powerful form of communication of technical ideas is simple text fields superposed on top of simple graphics, and that the faster we can make and share these with the minimum possible friction, the more powerful our communication will be.  This whole system is also predicated on the idea that the future of information technology is self replication and evolution, that is the user runs simple code that replicates the whole code base to a server, where they can easily modify the code as they go along, then when they spread it to the next user, their new, modified code base is passed along, so there is no one centralized code base, but a rhizomatic network of flowing code through the network. 
