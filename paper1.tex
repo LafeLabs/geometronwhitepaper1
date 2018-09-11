@@ -27,13 +27,13 @@
     As quantum computing technology has become a part of the computer industry over the last few years, we have seen a number of efforts to build languages targeted specifically at programming quantum processors.  These languages are generally intended as part of a ``quantum stack'' which goes from the physical qubit layer up to the highest level where the end user will ultimately be solving their problem in quantum chemistry or number theory or whatever.  Rigetti Computing, IBM, Microsoft, and several other companies have all created such languages.  All of them are very clearly heavily influenced by the history of software written for classical information processors. The languages tend to look like C, Python, or Fortran, and to think about information the same way we all learned in classical computing, in terms of numbers and gates.  
 
 
-    I would argue that all these approaches are limited by their divorce from the geometric nature of quatum information.  At the very least, adding a geometric layer to the quantum stack will allow for rapid, automated documentation to be created which makes the underlying code easier to interact with.  By having a language based on discrete symbols which correspond to gates, we can translate between that language, the actual physical gates, and the code in the various languages people have already written.  Thus at the very least, building the quantum Geometron language will allow for rapid, universal documentation to be created, making it easier for everyone using the various competing languages to rapidly communicate ideas online, and internally document their work.  
+    I would argue that all these approaches are limited by their divorce from the geometric nature of quantum information.  At the very least, adding a geometric layer to the quantum stack will allow for rapid, automated documentation to be created which makes the underlying code easier to interact with.  By having a language based on discrete symbols which correspond to gates, we can translate between that language, the actual physical gates, and the code in the various languages people have already written.  Thus at the very least, building the quantum Geometron language will allow for rapid, universal documentation to be created, making it easier for everyone using the various competing languages to rapidly communicate ideas online, and internally document their work.  
 
 
     This will be discussed in detail in another white paper, but part of the long term goal of this work on building geometric languages for quantum information is to create a fundamentally geometric way of interacting with the processors, without dealing directly with numbers at all.  Ideally, a problem we seek to solve can be posed geometrically, which is straightforward in instances such as protein folding or certain types of optimization. Then, using purely geometry-based languages similar to the one presented here, we build maps from the problem space to a Web browser and from the Web browser to the Hilbert space of the quantum information processor.  
 
 
-    To understand why a new language for dealing with graphics in quantum information science is useful, it's worth examining the existing workflows used in the field for graphical communication.  We generally present our pitches for funding and support via PowerPoint slides, typically with simple graphics based on a lot of conceptual cartoons and diagrams.  Similarly we present to colleagues at conferences and colloquia in this format, but generally with greated detail in the technical diagrams.  We also communicate with investors, perspective customers(for for profit ventures) and with the general public using rapid communication over the Web, often via a marketing or PR department.  New types of diagram are generally created in vector format using Adobe Illustrator.  These graphics are then propagated through PowerPoint, web design software, and other parts of the Adobe suite before being used to communicate.  
+    To understand why a new language for dealing with graphics in quantum information science is useful, it's worth examining the existing workflows used in the field for graphical communication.  We generally present our pitches for funding and support via PowerPoint slides, typically with simple graphics based on a lot of conceptual cartoons and diagrams.  Similarly we present to colleagues at conferences and colloquia in this format, but generally with greater detail in the technical diagrams.  We also communicate with investors, perspective customers(for for profit ventures) and with the general public using rapid communication over the Web, often via a marketing or PR department.  New types of diagram are generally created in vector format using Adobe Illustrator.  These graphics are then propagated through PowerPoint, web design software, and other parts of the Adobe suite before being used to communicate.  
 
 
 
@@ -66,7 +66,7 @@
 
 
 
-    Glyphs consist of sequences of actions.  They are expressed as strings in the form of base 8 addresses separated by commas, e.g.``0300,0341,0333,0341,''.  Some addresses in the action cube consist of glyphs, which in turn refernce other glyphs or actions.  Thus many levels of recursion are possible and used routinely.  This is a huge part of the power of this system over existing graphical systems like Adobe Illustrator.  Adding glyphs to the shape table and using those glyphs is not like just copying and pasting shapes in Illustrator.  It is in fact more like building up cell hierarchy in a electronic layout CAD program. 
+    Glyphs consist of sequences of actions.  They are expressed as strings in the form of base 8 addresses separated by commas, e.g.``0300,0341,0333,0341,''.  Some addresses in the action cube consist of glyphs, which in turn reference other glyphs or actions.  Thus many levels of recursion are possible and used routinely.  This is a huge part of the power of this system over existing graphical systems like Adobe Illustrator.  Adding glyphs to the shape table and using those glyphs is not like just copying and pasting shapes in Illustrator.  It is in fact more like building up cell hierarchy in a electronic layout CAD program. 
     
 
 
@@ -112,7 +112,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \caption{Shape table.}
 \end{figure}
 
-    The third tablet is the shape table.   This begins with ``base shapes'' from 0200 through 0217 which are glyphs that are used so often that it makes sense to keep them mostly fixed.  This includes the ``cursor glyph'' which is at address 0207, and is how spelling of glyphs and the live cursor correlate with each other.  Also, the square is at 0200 which is used so more than pracicaly any other shape since it encapsulates the symbol glyphs.  The range from 0220 through 0247 are the standard ``shape table'' which most language instances use.  The work flows described later in this paper are based on these shape tables, and that is how languages like ``quantum gates'' or``superconducting circuits'' are encoded.  These tables are all of the format of newline delimited sets of glyphs with an address in the format ``0200:0362,0203,0334,0203,0334,0203,0334,0203,0334,0354,".  
+    The third tablet is the shape table.   This begins with ``base shapes'' from 0200 through 0217 which are glyphs that are used so often that it makes sense to keep them mostly fixed.  This includes the ``cursor glyph'' which is at address 0207, and is how spelling of glyphs and the live cursor correlate with each other.  Also, the square is at 0200 which is used so more than practically any other shape since it encapsulates the symbol glyphs.  The range from 0220 through 0247 are the standard ``shape table'' which most language instances use.  The work flows described later in this paper are based on these shape tables, and that is how languages like ``quantum gates'' or``superconducting circuits'' are encoded.  These tables are all of the format of newline delimited sets of glyphs with an address in the format ``0200:0362,0203,0334,0203,0334,0203,0334,0203,0334,0354,".  
 
 
 
@@ -147,7 +147,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \end{figure}
 
 
-    Angles of rotation are discrete and all start from some basic rotation groups, shown in Figure 8.  These are based on 4 fold, 5-fold, and 6-fold symmetry.  A further set of actions includes bisecting and trisecting angles as well as their opposite, which allow for symmetry groups of multiples of these basic numbers and their prime factors(3 and 2 can be made from doubling 60 degrees to 120 or 90 degrees to 180.)  Note that while classical compass and straightedge geometry is a guide in the construction of geometron, I have chosen to ignore it when the computer allows and it is convenient as in the case of trisecting arbitrary angles(not possible in classical construction).      
+    Angles of rotation are discrete and all start from some basic rotation groups, shown in Figure 8.  These are based on 4 fold, 5-fold, and 6-fold symmetry.  A further set of actions includes bisecting and trisecting angles as well as their opposite, which allow for symmetry groups of multiples of these basic numbers and their prime factors(3 and 2 can be made from doubling 60 degrees to 120 or 90 degrees to 180.)  Note that while classical compass and straightedge geometry is a guide in the construction of Geometron, I have chosen to ignore it when the computer allows and it is convenient as in the case of trisecting arbitrary angles(not possible in classical construction).      
 
     A natural way to extend Geometron for some specific applications is to add other symmetry groups to the action row 030x, such as 7 or some other weird higher prime number.  Extending these types of operation to much larger numbers might be a path to implementing factorization of large integers in quantum geometron using Galois theory, which will be discussed in another white paper.
 
@@ -238,7 +238,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure15_square.png}
 
-\caption{Figure 15. Square.  This figure is a closed path, so it has actions to both open the path and close it, separated by ``move along path'' actions, and rotations, which assume we are on a 90 degree symmetry.  A good exercise is to repeat this with 120 degree symmetry to get a triangle, with 72 degree to get a pentagon, and 60 degree symmetry to get a hexagon(these have more steps but are the same basic patttern.)}
+\caption{Figure 15. Square.  This figure is a closed path, so it has actions to both open the path and close it, separated by ``move along path'' actions, and rotations, which assume we are on a 90 degree symmetry.  A good exercise is to repeat this with 120 degree symmetry to get a triangle, with 72 degree to get a pentagon, and 60 degree symmetry to get a hexagon(these have more steps but are the same basic pattern.)}
 \end{figure}
 
 
@@ -275,7 +275,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 
-    Once a unit cell is built, making any length of inductive elment is possibly by simply chaining together that unit cell action.  This means that just a few keystrokes can be used to create many different possible geometries of transformer for instance.  It also means that it is very easy with a couple of lines of code to create inductive circuits algorithmically. Once a compound glyph has been constructed such as the standard inductor, it can be joined with other glyphs in the quantum circuits shape table to make an RLC ciruit as shown in figure 22.  
+    Once a unit cell is built, making any length of inductive element is possibly by simply chaining together that unit cell action.  This means that just a few keystrokes can be used to create many different possible geometries of transformer for instance.  It also means that it is very easy with a couple of lines of code to create inductive circuits algorithmically. Once a compound glyph has been constructed such as the standard inductor, it can be joined with other glyphs in the quantum circuits shape table to make an RLC circuit as shown in figure 22.  
 
 
 \begin{figure}
@@ -301,7 +301,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure20_transformer.png}
 
-\caption{Figure 20. Transformer made from same sub-elemets as simple inductor.  Building circuits like this begins to show the labor-saving power of Geometron: this is just a few actions, but can now be encoded as a shape, so a single action can instance it, allowing the user to build up huge complex inductive circuits with very little effort or artistic skill. }
+\caption{Figure 20. Transformer made from same sub-elements as simple inductor.  Building circuits like this begins to show the labor-saving power of Geometron: this is just a few actions, but can now be encoded as a shape, so a single action can instance it, allowing the user to build up huge complex inductive circuits with very little effort or artistic skill. }
 \end{figure}
 
 
@@ -354,12 +354,12 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 
 
-    Finally, no tour of graphical languages for quantum theory would be complete without a eample Feynman diagram.  The power of those simple cartoons to reduce the labor associated with calculating path integrals is a major motivating force for this work: it proves that the simple act of drawing a new type of cartoon can have a large impact in what workers in a computational field can achieve.  Figure 24 shows how a Feynman diagram is built up from constituent actions, which can be re-arranged to make other diagrams. 
+    Finally, no tour of graphical languages for quantum theory would be complete without an example Feynman diagram.  The power of those simple cartoons to reduce the labor associated with calculating path integrals is a major motivating force for this work: it proves that the simple act of drawing a new type of cartoon can have a large impact in what workers in a computational field can achieve.  Figure 24 shows how a Feynman diagram is built up from constituent actions, which can be re-arranged to make other diagrams. 
 
 \section{Structure of Code}
 
 
-    All the code that makes up the Geoemtron system designed to run in the browser, using standard HTML, CSS and JavaScript.  The one exception to this is communicating with the filesystem which is all done with PHP, and that is part of a social media structure which will be documented in another white paper.  
+    All the code that makes up the Geoemtron system designed to run in the browser, using standard HTML, CSS and JavaScript.  The one exception to this is communicating with the file system which is all done with PHP, and that is part of a social media structure which will be documented in another white paper.  
 
 
 
@@ -407,15 +407,15 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \section{Workflow}
 
-There are three levels of interaction a user can have with Geometron.  At the minimal level of interaction, one consumes graphical content as it is made availalbe, simply using the free Public Domain vector graphics that are made available for ones own work.  The next and most common level of interaction is learning how to make your own graphics, and using an existing Geometron instance to do that, creating custom graphics for whatever media you're working on.  The third level of involvement is to build up your own graphical languages, making custom tables of symbols for whatever your technical application or branding might require.  This is where the true power of Geometron will be unleashed: when people in the community start to build and share their own new graphical languages.  One might think of this as a sort of meta-Feynman diagram: a general system for diagramatically solving new types of problem in quantum theory(or indeed any field).  It is my hope that each of these work flows leads continuously into the next, with people using the graphics, learning a little of the language, then getting hooked on how much fun it is to make interesting diagrams quickly, start making their own for fun, and eventually incorporating this into their main graphical workflow, and finally when they're very comfortable in the language, building their own symbolic languages(which is the same commands you use to make any symbol.)
+There are three levels of interaction a user can have with Geometron.  At the minimal level of interaction, one consumes graphical content as it is made available, simply using the free Public Domain vector graphics that are made available for ones own work.  The next and most common level of interaction is learning how to make your own graphics, and using an existing Geometron instance to do that, creating custom graphics for whatever media you're working on.  The third level of involvement is to build up your own graphical languages, making custom tables of symbols for whatever your technical application or branding might require.  This is where the true power of Geometron will be unleashed: when people in the community start to build and share their own new graphical languages.  One might think of this as a sort of meta-Feynman diagram: a general system for diagrammatically solving new types of problem in quantum theory(or indeed any field).  It is my hope that each of these work flows leads continuously into the next, with people using the graphics, learning a little of the language, then getting hooked on how much fun it is to make interesting diagrams quickly, start making their own for fun, and eventually incorporating this into their main graphical workflow, and finally when they're very comfortable in the language, building their own symbolic languages(which is the same commands you use to make any symbol.)
 
-The graphical languages I focus on on www.quantumart.org are quantum circuits(circuits with Josephson juncitons), quantum logic gates(based on the introduction to Nielson and Chuang), Feynman diagrams, and simple knot theory for topological applications.  The static libraries just focus on the quantum circuits and the logic gates to keep the signal to noise ratio of the library high.  
+The graphical languages I focus on on www.quantumart.org are quantum circuits(circuits with Josephson junctions), quantum logic gates(based on the introduction to Nielson and Chuang), Feynman diagrams, and simple knot theory for topological applications.  The static libraries just focus on the quantum circuits and the logic gates to keep the signal to noise ratio of the library high.  
 
-    There are three main work flows I will discuss here.  The first is simply a free vector graphics library for the quantum information community, maintained at www.quantumart.org.  This is intended to be grown over time and to attempt to have as many commonly used symbols as possible, all explicitly in the Public Domain, with as many format choices as possible for very smooth use in existing graphics workflows.  The second is use of the specific graphical languages (geometron instances) for quantum information, which are also provided at www.quantumart.org.  These ``graphics factories'' can be used to rapidly create, publish, edit and share vector graphics using graphical languages specificlaly for QI.  This includes quantum logic gates, quantum circuits, Feynman diagrams, and graph theory diagrams. The third work flow is full instancing of the metalanguage, where the user creates their own graphical languages, both symbols and actions.  This is where the true power of this system will be unleashed, especially when paired with the technical micro-blogging software documented elsewhere.  
+    There are three main work flows I will discuss here.  The first is simply a free vector graphics library for the quantum information community, maintained at www.quantumart.org.  This is intended to be grown over time and to attempt to have as many commonly used symbols as possible, all explicitly in the Public Domain, with as many format choices as possible for very smooth use in existing graphics workflows.  The second is use of the specific graphical languages (Geometron instances) for quantum information, which are also provided at www.quantumart.org.  These ``graphics factories'' can be used to rapidly create, publish, edit and share vector graphics using graphical languages specifically for QI.  This includes quantum logic gates, quantum circuits, Feynman diagrams, and graph theory diagrams. The third work flow is full instancing of the metalanguage, where the user creates their own graphical languages, both symbols and actions.  This is where the true power of this system will be unleashed, especially when paired with the technical micro-blogging software documented elsewhere.  
 
-There are two ways to parse the work flow of the Geometron system.  We can consider the path taken by a new user, which is what is sketched in the above paragraph.  In this flow, a new user starts out seeing this as just a free graphics library, then moves up to making their own graphics, and finally to building their own graphics languages.  The other way to consider the work flow is to trace the path of the information as it would flow for an expert user.  In this path, a Geometron instance is created by cloning all the code using the script replicator.php onto a new directory on a web server with PHP istalled.  
+There are two ways to parse the work flow of the Geometron system.  We can consider the path taken by a new user, which is what is sketched in the above paragraph.  In this flow, a new user starts out seeing this as just a free graphics library, then moves up to making their own graphics, and finally to building their own graphics languages.  The other way to consider the work flow is to trace the path of the information as it would flow for an expert user.  In this path, a Geometron instance is created by cloning all the code using the script replicator.php onto a new directory on a web server with PHP installed.  
 
-Full Workflow:
+The following enumerated list is the full Geometron workflow, which I will lead the reader through. 
 \begin{enumerate}
 
 \item Read this paper, learn goals of Geometron, decide to learn it.
@@ -432,25 +432,25 @@ Full Workflow:
 
 \end{enumerate}
 
-First read this paper, focusing especially on the figures, and noting any errors or corrections to send to the author or further notes you want to add in your own documentation later.
+
+First read this paper, focusing especially on the figures, and noting any errors or corrections to send to the author or further notes you want to add in your own documentation later.  Since this work is intended to build a collection of information which exists in the Commons, I as the author of this paper am asking for more help from you the reader than would be typical in a white paper like this. I hope that with your help, future revisions of this paper will be drastically improved as the software itself improves as well as the overall workflow and online documentation.  This whole paper is in the Public Domain and you are welcome to edit it and use it as you see fit, with or without attribution.  
+
 
 The graphics library can be found at www.quantumart.org/library.  Peruse it at your leisure, share it widely use it as needed.  
 
-To start with movements, load the browser to the page www.quantumart.org/sandbox, and the cursor should automatically be placed in the correct input for actions to happen so that all you need to do is hit keys.  Start with the keys a,s, d, and f(all lowercase) as wel as g, h, j and k.  These should move the cursor around, and give you a chance to see how that works.  Use the backspace key to delete an action from the glyph.  Use the left and right arrow keys to navigate the cursor through the action sequence of your glyph.  When the movement makes some sense, add the basic drawing actions z,x,c and v which are point, circle, line segment and arc.  
+To start with movements, load the browser to the page www.quantumart.org/sandbox, and the cursor should automatically be placed in the correct input for actions to happen so that all you need to do is hit keys.  The mapping of the standard English QWERTY keyboard is shown in Figure 25.  Start with the keys a,s, d, and f(all lowercase) as wel as g, h, j and k.  These should move the cursor around, and give you a chance to see how that works.  Use the backspace key to delete an action from the glyph.  Use the left and right arrow keys to navigate the cursor through the action sequence of your glyph.  When the movement makes some sense, add the basic drawing actions z,x,c and v which are point, circle, line segment and arc.  
 
-After these basic motions make sense, keep plyaing with them to try making some basic shapes and cartoons, but this will remain limited until you get used to it, and it's a good time to move on to the symmetries.  The three you mostly wan to play with are 90 degrees which is the back tic mark under the tilde in the far left of the top row of a standard ASDF keyboard, the 1 and the 2 keys, which are 72 degrees and 60 degrees respectively.  Also, 3 is bisect angle and 4 is double, 5 is trisect and 6 is triple angle.
+After these basic motions make sense, keep playing with them to try making some basic shapes and cartoons, but this will remain limited until you get used to it, and it's a good time to move on to the symmetries.  The three you mostly wan to play with are 90 degrees which is the back tic mark under the tilde in the far left of the top row of a standard ASDF keyboard, the 1 and the 2 keys, which are 72 degrees and 60 degrees respectively.  Also, 3 is bisect angle and 4 is double, 5 is trisect and 6 is triple angle.
 
-Try differnt scale by going along the row from the angle commands to 7,8,9,0,- and = keys, which are all scaleFactor values.  Try different scale values and then zoom in and out with j and k to see how they work.  
+Try different scale by going along the row from the angle commands to 7,8,9,0,- and = keys, which are all scaleFactor values.  Try different scale values and then zoom in and out with j and k to see how they work.  
 
-make a Bezier
+make a Bezier path.  Note that there are two pairs of Bezier commands: start and send Bezier inside a path(r and u), and start and end a path isolated from other paths(t and y).  It is best to start with t and y until you are really used to how paths work.  A good thing to start with is to draw half an ellips by entering t,f,f,y.  Then try t,f,f,g,g,y to make a different curve.  Try using shrink and expand (j and k) to change the curvatures at the ends.  Note that while your cursor is inside a path you can't see the whole path.    
 
-make a closed path, filled and unfilled
+Make a closed path, filled and unfilled.  The first thing to do is try making a filled square, becuase that is the easiest possible shape to draw.  For this, the key sequence is q,w,h,w,h,w,h,w,e, or in bytecode ``0362,0203,0335,0203,0335,0203,0335,0203,0363,''.  Now try editing this glyph by using the arrow keys to navigate and putting different symmetries at the beginning, either 6 fold or 5 fold.  In both cases you will need to add more line segments to the path to get the full polygon, but you can use this method to convert your code for a square into other regular polygons.  Go to the beginning of the path and try changing the color by adding one of the layer change actions, which are the shift values of the number keys, starting with the tilde and going over to the ampersand.  
 
-make text with 01xxx, with 0365
+Now try making text the two ways that text is made in Geometron.  First put the cursor in the ``print'' field and just type some random keys.  You should see letters getting printed on the screen in the Geometron Font that I created, a simple and crude geometric font.  Note that the bytecode field at the bottom of the screen shows that the actions for these letters are in the range from 01040 through 01176. The other way to make text is to put the cursor in the field marked ``stack'', hit some random keys, then put the cursor back in the ``action'' field and hit the ``['' key, which is 0365 in bytecode.  This dumps any characters you put in the character stack into a text field, the size of which is set by the cursor ``side'' global variable. 
 
-choose layers, use them
-
-edit style JSON
+Edit style JSON.  Click on the link on the main Geometron  
 
 export a png, save it to your computer
 
@@ -458,13 +458,21 @@ svae a svg, link to it, save it to your computer
 
 publish a svg link, share it so others can edit on server and publish edits and share them
 
-Build your own space on quantumart.org/yournamehere
+
+Build your own space on quantumart.org/yournamehere email me to set it up.  lafe@quantumart.org
+
 
 Build your own server, hire me, build a pi locally, build graphics, share and publish on web using a mirror, customize the language, build a physical node for the network in a conference room with a custom keyboard and a projector on a big screen 
 
 Customize your code for your brand and your research, publish it all, share your artwork as art 
 
 
+\begin{figure}
+
+\includegraphics[width=\linewidth]{figures/figure_keyboard.png}
+
+\caption{Figure 25. Basic Geometron keyboard layout. Upper case letters on the rows QWERT, ASDF and ZXCV map to the shape table elements 0220-0227, 0230-237, and 0240-0247 respectively by default.  Re-mapping of the letters is carried out by changing the values in the Geometron Hypercube at the addresses from 040 through 0176, which is done by editing the file bytecode/keyboard.txt.}
+\end{figure}
 
 
 
@@ -518,15 +526,42 @@ Note that as this system propagates through the quantum information community, t
 
 Hire me to set up a local node of Network
 
+human workflow: marketing, senior management, frontend web development, fabrication people, measurement researchers, theorists, investors, program managers, public, students, 
+
+file structure:
+
+*.php
+bytecode/*.txt
+svg/*.txt
+javascript/*.txt
+css/*.txt
+html/*.txt
+json/*.txt
+php/*.txt
+
+
+files in workflow:
+index.php
+
+shapetableeditor.php
+shapes.txt
+
+stylejson.txt
+currentjson.txt
+tree.php
+
+svg/svg[datecode].txt
+
+
 
 \section{Future Work and Implications}
 
-Try to imagine learning about quantum two level systems without the Bloch sphere, or basic gates without the graphical represntation of control not or quantum electrodynamics without Feynman diagrams.  These graphical tools are some of the most powerful we have at our disposal(including computers and lab equipment even) as quantum information scientists.  Imagine if the bar to build a new graphical language like this were lowered to where a graduate student could easily make a new one on their smart phone while waiting for the bus.  We have no idea just how much computational power will be unleashed by creating a free open graphical network for this kind of information, but the only way to find out is to build it.  
+Try to imagine learning about quantum two level systems without the Bloch sphere, or basic gates without the graphical representation of control not or quantum electrodynamics without Feynman diagrams.  These graphical tools are some of the most powerful we have at our disposal(including computers and lab equipment even) as quantum information scientists.  Imagine if the bar to build a new graphical language like this were lowered to where a graduate student could easily make a new one on their smart phone while waiting for the bus.  We have no idea just how much computational power will be unleashed by creating a free open graphical network for this kind of information, but the only way to find out is to build it.  
 
 
-The work presented in this paper is simply a factory for graphics.  The next of the three white papers that present this work will deal with building a social network based on sharing information created with Geometron.  It is worth noting here that the World Wide Web was originially built by Tim Bernars Lee at CERN specifically to help physicists communicate with one another and to organize their research information.  I believe that it is a rational next step for the Web to build another such extension.  This next white paper will describe the Geomtron Network, which is a self-replicating system that allows for totally free rapid sharing of graphics and integration of math-formatted text with them.  It is integrated into a slide sharing system which can replace PowerPoint for rapid online sharing of graphics, and a paper authoring system which integrates with $\LaTeX$, and a system for making vector graphics from standard function plots we use frequently.  The key idea of this system is that the current most powerful form of communication of technical ideas is simple text fields superposed on top of simple graphics, and that the faster we can make and share these with the minimum possible friction, the more powerful our communication will be.  This whole system is also predecated on the idea that the future of information technology is self replication and evolution, that is the user runs simple code that replicates the whole code base to a server, where they can easily modify the code as they go along, then when they spread it to the next user, their new, modified code base is passed along, so there is no one centralized code base, but a rhizomnal network of flowing code through the network. 
+The work presented in this paper is simply a factory for graphics.  The next of the three white papers that present this work will deal with building a social network based on sharing information created with Geometron.  It is worth noting here that the World Wide Web was originally built by Tim Bernars Lee at CERN specifically to help physicists communicate with one another and to organize their research information.  I believe that it is a rational next step for the Web to build another such extension.  This next white paper will describe the Geomtron Network, which is a self-replicating system that allows for totally free rapid sharing of graphics and integration of math-formatted text with them.  It is integrated into a slide sharing system which can replace PowerPoint for rapid online sharing of graphics, and a paper authoring system which integrates with $\LaTeX$, and a system for making vector graphics from standard function plots we use frequently.  The key idea of this system is that the current most powerful form of communication of technical ideas is simple text fields superposed on top of simple graphics, and that the faster we can make and share these with the minimum possible friction, the more powerful our communication will be.  This whole system is also predicated on the idea that the future of information technology is self replication and evolution, that is the user runs simple code that replicates the whole code base to a server, where they can easily modify the code as they go along, then when they spread it to the next user, their new, modified code base is passed along, so there is no one centralized code base, but a rhizomatic network of flowing code through the network. 
 
-The third of the white papers that makes up the sequence of Geometron for quantum information will discuss how Geometron can be used for creating sequences of discrete geometric actions in Hilbert space as well as in three dimensions just as it does in two dimensions in the system discussed here.  The thesis of this paper is that it should be possible to create Geometron instances for 3d virtual reality modeling of problems which are amenable ot quantum speedup in the browser, build another geomtron instance for the space spanned by the qubits in the quantum processor, then by building direct maps between these spaces to create a user interface for people solving these problems which truly leverages the power of Hilbert space geometry, without relying on models based on classical computer science.   I will describe a system for controlling and programming a quantum processor whereby a group of users simultaneously interact with the processor in real time using a multiplayer virtual reality interface, programming the machine using yet another geometron instance which describes qubit control pulses using discrete geometry.  Finally, by showing that the output of the quantum processor can also be geometron glyphs, I will show that this is a path to the self-programming quantum computer.
+The third of the white papers that makes up the sequence of Geometron for quantum information will discuss how Geometron can be used for creating sequences of discrete geometric actions in Hilbert space as well as in three dimensions just as it does in two dimensions in the system discussed here.  The thesis of this paper is that it should be possible to create Geometron instances for 3d virtual reality modeling of problems which are amenable ot quantum speedup in the browser, build another geomtron instance for the space spanned by the qubits in the quantum processor, then by building direct maps between these spaces to create a user interface for people solving these problems which truly leverages the power of Hilbert space geometry, without relying on models based on classical computer science.   I will describe a system for controlling and programming a quantum processor whereby a group of users simultaneously interact with the processor in real time using a multiplayer virtual reality interface, programming the machine using yet another Geometron instance which describes qubit control pulses using discrete geometry.  Finally, by showing that the output of the quantum processor can also be Geometron glyphs, I will show that this is a path to the self-programming quantum computer.
 
 
 

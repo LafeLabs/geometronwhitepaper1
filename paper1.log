@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.11)  9 SEP 2018 10:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.11)  10 SEP 2018 19:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -380,74 +380,91 @@ Overfull \hbox (55.87167pt too wide) in paragraph at lines 394--394
 ring() + "\" ";[] 
  []
 
-[30] [31] [32]
+[30] [31]
+Overfull \hbox (0.23672pt too wide) in paragraph at lines 418--419
+[]\OT1/cmr/m/n/10 The fol-low-ing enu-mer-ated list is the full Ge-ometron work
+-flow, which
+ []
+
+[32]
 Overfull \hbox (9.61842pt too wide) in paragraph at lines 422--423
 []\OT1/cmr/m/n/10 Browse ex-ist-ing graph-ics li-braries, down-load what-ever v
 ec-tor graph-
  []
 
 
-Overfull \hbox (80.05637pt too wide) in paragraph at lines 439--440
+Overfull \hbox (80.05637pt too wide) in paragraph at lines 441--442
 []\OT1/cmr/m/n/10 To start with move-ments, load the browser to the page www.qu
 antumart.org/sandbox,
  []
 
-[33]
+[33] [34] <figures/figure_keyboard.png, id=171, 702.625pt x 501.875pt>
+File: figures/figure_keyboard.png Graphic file (type png)
+
+<use figures/figure_keyboard.png>
+Package pdftex.def Info: figures/figure_keyboard.png used on input line 472.
+(pdftex.def)             Requested size: 360.0pt x 257.1475pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 492.
+(Font)              <7> on input line 500.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 492.
+(Font)              <5> on input line 500.
 
 ! Misplaced alignment tab character &.
-l.495 ... $\rightarrow$ index.php?path=mynewpath/&
+l.503 ... $\rightarrow$ index.php?path=mynewpath/&
                                                   url=mynewpath/svg/svg[date...
 
 ? 
 
-Overfull \hbox (62.11101pt too wide) in paragraph at lines 473--497
+Overfull \hbox (62.11101pt too wide) in paragraph at lines 481--505
 \OT1/cmr/m/n/10 tions, then sym-bols in-dex.php?path=mynewpath/ (PUB-LISH) svg/
 svg[datecode].svg
  []
 
 
-Overfull \hbox (94.22331pt too wide) in paragraph at lines 473--497
+Overfull \hbox (94.22331pt too wide) in paragraph at lines 481--505
 \OT1/cmr/m/n/10 links$\OMS/cmsy/m/n/10 !$ \OT1/cmr/m/n/10 svgfeed.php $\OMS/cms
 y/m/n/10 !$ \OT1/cmr/m/n/10 in-dex.php?path=mynewpath/url=mynewpath/svg/svg[dat
 ecode].svg
  []
 
-[34]
+[35] [36 <./figures/figure_keyboard.png>]
+Overfull \hbox (1.94531pt too wide) in paragraph at lines 533--541
+[]\OT1/cmr/m/n/10 *.php byte-code/*.txt svg/*.txt javascript/*.txt css/*.txt ht
+ml/*.txt
+ []
+
 ! You can't use `\spacefactor' in math mode.
 \@->\spacefactor 
                  \@m {}
-l.527 ...ring system which integrates with $\LaTeX
-                                                  $ to
+l.562 ...ring system which integrates with $\LaTeX
+                                                  $, and a system for making...
+
 ? 
 Missing character: There is no è in font cmex10!
-[35] [36] (./paper1.aux) ) 
+[37] [38] [39] (./paper1.aux) ) 
 Here is how much of TeX's memory you used:
- 1615 strings out of 494953
- 25149 string characters out of 6180977
- 79701 words of memory out of 5000000
- 4884 multiletter control sequences out of 15000+600000
+ 1620 strings out of 494953
+ 25295 string characters out of 6180977
+ 80701 words of memory out of 5000000
+ 4888 multiletter control sequences out of 15000+600000
  7806 words of font info for 28 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,5n,23p,1451b,234s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt10.pfb>
-Output written on paper1.pdf (36 pages, 607497 bytes).
+ 37i,5n,23p,1750b,234s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on paper1.pdf (39 pages, 648771 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
+ 229 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
