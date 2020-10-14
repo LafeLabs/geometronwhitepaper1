@@ -3,8 +3,7 @@
 \usepackage{graphicx}
 \begin{document}
 
-
-\title{Geometron: A Universal Language for Graphical Communication}
+\title{Geometron: A Geometric Language for Graphical Communication}
 \author{Lafe Spietz}
 
 \abstract{This is a white paper describing the basic construction of Geometron and how it can be of use specifically to the quantum information community.  Geometron is a metalanguage based on discrete geometric actions used to build symbols in a systematic way.  The basis of Geometron is the Geometron Virtual Machine(GVM), a purely geometric virtual machine in which points in space map to actions which have geometric meaning.  This paper first motivates the work by surveying existing languages used in the quantum information community, then describes the ideas behind the GVM and gives examples of how it is used in practical work.  A deep dive section into the exact structure and implementation of the GVM used here is then provided.  Finally the workflow is described which members of the QI community can immediately start to implement, and then future work is described which can leverage the power of geometry based thinking about quantum information for both better communication between the people in the community and better ways to program quantum computers more efficiently.}
@@ -66,10 +65,8 @@
 
 
 
-    Glyphs consist of sequences of actions.  They are expressed as strings in the form of base 8 addresses separated by commas, e.g.``0300,0341,0333,0341,''.  Some addresses in the action cube consist of glyphs, which in turn reference other glyphs or actions.  Thus many levels of recursion are possible and used routinely.  This is a huge part of the power of this system over existing graphical systems like Adobe Illustrator.  Adding glyphs to the shape table and using those glyphs is not like just copying and pasting shapes in Illustrator.  It is in fact more like building up cell hierarchy in a electronic layout CAD program. 
+    Glyphs consist of sequences of actions.  They are expressed as strings in the form of base 8 addresses separated by commas, e.g. ``0300,0341,0333,0341,''.  Some addresses in the action cube consist of glyphs, which in turn reference other glyphs or actions.  Thus many levels of recursion are possible and used routinely.  This is a huge part of the power of this system over existing graphical systems like Adobe Illustrator.  Adding glyphs to the shape table and using those glyphs is not like just copying and pasting shapes in Illustrator.  It is in fact more like building up cell hierarchy in a electronic layout CAD program. 
     
-
-
 
     For each action in the action cube, be it a discrete JavaScript action or a glyph made of of other actions of glyphs, there is always a corresponding symbol glyph in the symbol cube, in the address space 01000-01777.  These symbols are \textit{
 always} glyphs made up of a sequence of actions(rather than an action in JavaScript).  
@@ -90,7 +87,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \begin{figure}
 \includegraphics[width=\linewidth]{figures/figure3_bottomTablet.png}
 
-\caption{Figure 3. Bottom Tablet.  This is split between the bottom part of the printable 7 bit ASCII code and various system actions which control things like cursor position while editing glyphs. }
+\caption{Bottom Tablet.  This is split between the bottom part of the printable 7 bit ASCII code and various system actions which control things like cursor position while editing glyphs. }
 \end{figure}
 
     The bottom tablet in address space from 0 to 077 consists of ``root magick'' actions from 06 through 037 and the first part of the ASCII from 040 to 077.  Root magick consists of actions which are not purely geometric in nature, which interact with the Geometron software.  Examples of these are ``move cursor forward'', ``move cursor back'', zoom and pan of the view of the glyph, moving through the shape table in the shape table editor etc.  As with all other parts of the Action Cube, each action has a symbol in the Symbol Cube.  The first six elements of the bottom tablet are left open for storage of HTML and creation scripts in more self-contained versions of the code(to be discussed elsewhere).  
@@ -167,7 +164,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure10_layers.png}
 
-\caption{Figure 10. Layers/colors.  These are at addresses 0320 through 0327.}
+\caption{Layers/colors.  These are at addresses 0320 through 0327.}
 \end{figure}
 
 
@@ -181,7 +178,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 \includegraphics[width=\linewidth]{figures/figure11a_movements.png}
 \includegraphics[width=\linewidth]{figures/figure11b_rotationscale.png}
 
-\caption{Figure 11a,b. Basic movements: discrete step in (x,y) space, rotation, increase or decrease scale.}
+\caption{Basic movements: discrete step in (x,y) space, rotation, increase or decrease scale.}
 \end{figure}
 
 
@@ -192,7 +189,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure12_basicDraw.png}
 
-\caption{Figure 12. The most basic drawing actions: dot, circle, line segment, arc.}
+\caption{The most basic drawing actions: dot, circle, line segment, arc.}
 \end{figure}
 
     There are numerous drawing actions which can be added to the Geometron Action Tablet, but the most basic self-contained geometric constructions are the dot, circle, arc and line segment.  These alone can be used to construct a very large class of diagrams, figures, symbols, etc.  
@@ -213,7 +210,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure14_paths.png}
 
-\caption{Figure 14. Paths: a key element of all vector graphics systems.  The actions are: start path, close and fill, close and don't fill, and terminate without closing.  All three are very useful.  Several actions exist to connect these, including cubic Bezier paths, arcs and line segments.  A very common source of errors in geometron glyphs is paths that are not closed.  Always close your paths. }
+\caption{Paths: a key element of all vector graphics systems.  The actions are: start path, close and fill, close and don't fill, and terminate without closing.  All three are very useful.  Several actions exist to connect these, including cubic Bezier paths, arcs and line segments.  A very common source of errors in geometron glyphs is paths that are not closed.  Always close your paths. }
 \end{figure}
 
 
@@ -238,7 +235,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure15_square.png}
 
-\caption{Figure 15. Square.  This figure is a closed path, so it has actions to both open the path and close it, separated by ``move along path'' actions, and rotations, which assume we are on a 90 degree symmetry.  A good exercise is to repeat this with 120 degree symmetry to get a triangle, with 72 degree to get a pentagon, and 60 degree symmetry to get a hexagon(these have more steps but are the same basic pattern.)}
+\caption{Square.  This figure is a closed path, so it has actions to both open the path and close it, separated by ``move along path'' actions, and rotations, which assume we are on a 90 degree symmetry.  A good exercise is to repeat this with 120 degree symmetry to get a triangle, with 72 degree to get a pentagon, and 60 degree symmetry to get a hexagon(these have more steps but are the same basic pattern.)}
 \end{figure}
 
 
@@ -248,7 +245,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure16_circlesFractal.png}
 
-\caption{Figure 16. Simple circles figure.  This figure, which is part of a Smith chart, is very simple to construct with just a few keystrokes in Geoemtron, and shows the power of this method for creating figures like this. }
+\caption{Simple circles figure.  This figure, which is part of a Smith chart, is very simple to construct with just a few keystrokes in Geoemtron, and shows the power of this method for creating figures like this. }
 \end{figure}
 
 
@@ -258,7 +255,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure17_star.png}
 
-\caption{Figure 17. Five pointed star.  Creating a five pointed star is also just a few keystrokes, with the right symmetry selected, and with start/stop of closed paths, one can make either a filled or unfilled star in seconds with Geometron.}
+\caption{Five pointed star.  Creating a five pointed star is also just a few keystrokes, with the right symmetry selected, and with start/stop of closed paths, one can make either a filled or unfilled star in seconds with Geometron.}
 \end{figure}
 
 
@@ -282,7 +279,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure18_coilBezier1.png}
 
-\caption{Figure 18. Cubic Bezier path which starts the construction of a inductor.  Note that with discrete Geometron-based actions, this is a much simpler task than with continuous vector graphics editors.  With no access to existing electronic data, one can reconstruct this on another computer just from reading the printed symbol glyphs in the proper order.}
+\caption{Cubic Bezier path which starts the construction of a inductor.  Note that with discrete Geometron-based actions, this is a much simpler task than with continuous vector graphics editors.  With no access to existing electronic data, one can reconstruct this on another computer just from reading the printed symbol glyphs in the proper order.}
 \end{figure}
 
 
@@ -292,7 +289,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
     
 \includegraphics[width=\linewidth]{figures/figure19_inductor.png}
 
-\caption{Figure 19. An inductor built up from individual loop glyphs.}
+\caption{An inductor built up from individual loop glyphs.}
 \end{figure}
 
 
@@ -301,7 +298,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure20_transformer.png}
 
-\caption{Figure 20. Transformer made from same sub-elements as simple inductor.  Building circuits like this begins to show the labor-saving power of Geometron: this is just a few actions, but can now be encoded as a shape, so a single action can instance it, allowing the user to build up huge complex inductive circuits with very little effort or artistic skill. }
+\caption{Transformer made from same sub-elements as simple inductor.  Building circuits like this begins to show the labor-saving power of Geometron: this is just a few actions, but can now be encoded as a shape, so a single action can instance it, allowing the user to build up huge complex inductive circuits with very little effort or artistic skill. }
 \end{figure}
 
 
@@ -310,7 +307,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure21_rlc.png}
 
-\caption{Figure 21. RLC resonator circuit.}
+\caption{RLC resonator circuit.}
 \end{figure}
 
 
@@ -319,7 +316,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure22_gates.png}
 
-\caption{Figure 22. Quantum gate symbol construction and glyph spelling.}
+\caption{Quantum gate symbol construction and glyph spelling.}
 \end{figure}
 
 
@@ -334,7 +331,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure23_graphtheory.png}
 
-\caption{Figure 23. Graph theory constructions using a Geometron instance of arrows and circles.}
+\caption{Graph theory constructions using a Geometron instance of arrows and circles.}
 \end{figure}
 
 
@@ -348,7 +345,7 @@ always} glyphs made up of a sequence of actions(rather than an action in JavaScr
 
 \includegraphics[width=\linewidth]{figures/figure24_feynman1.png}
 
-\caption{Figure 24. Building a Feynman Diagram from individual sub-glyphs, with spelling shown below.}
+\caption{Building a Feynman Diagram from individual sub-glyphs, with spelling shown below.}
 \end{figure}
 
 
@@ -434,8 +431,6 @@ The following enumerated list is the full Geometron workflow, which I will lead 
 
 
 First read this paper, focusing especially on the figures, and noting any errors or corrections to send to the author or further notes you want to add in your own documentation later.  Since this work is intended to build a collection of information which exists in the Commons, I as the author of this paper am asking for more help from you the reader than would be typical in a white paper like this. I hope that with your help, future revisions of this paper will be drastically improved as the software itself improves as well as the overall workflow and online documentation.  This whole paper is in the Public Domain and you are welcome to edit it and use it as you see fit, with or without attribution.  
-
-
 The graphics library can be found at www.quantumart.org/library.  Peruse it at your leisure, share it widely use it as needed.  
 
 To start with movements, load the browser to the page www.quantumart.org/sandbox, and the cursor should automatically be placed in the correct input for actions to happen so that all you need to do is hit keys.  The mapping of the standard English QWERTY keyboard is shown in Figure 25.  Start with the keys a,s, d, and f(all lowercase) as wel as g, h, j and k.  These should move the cursor around, and give you a chance to see how that works.  Use the backspace key to delete an action from the glyph.  Use the left and right arrow keys to navigate the cursor through the action sequence of your glyph.  When the movement makes some sense, add the basic drawing actions z,x,c and v which are point, circle, line segment and arc.  
@@ -454,30 +449,16 @@ The next thing to experiment with is editing the style JSON file.  This is acomp
 
 With this basic tour of functionality you are ready to actually get some useful files out of this system.  To do this, first click on the button marked ``EXPORT PNG''.  Then right click on the image and you can save or copy the png of what you made.  Of course, the PNG destroys the vector graphics nature of what you've made, it's just easier to share in more types of software.  To get the file in SVG format, click the button marked ``SAVE SVG''.  Now notice that the text field in the lower right corner of the screen has a bunch of code in it.  That is the contents of the SVG, which you can copy and paste into a text editor and save as filename.svg if you want, but the much simpler way to see your file is to click the link to the svg feed link, where it should be the top image.  Right click to save it.
 
-Once you are comforatble with the basics of Geometron, you should explore the tree.php file which has links to various language instances.  From there the next step is to get your own full instance of the Geometron system in your own directory on quantumart.org so that you can edit the code and try things without worrying about other users.  Then to really deploy the system you want to get a instance set up on your own web server and rebrand and retool the whole system for your specific applications, subjects, brand, and group of people.  You can also build a version of this on a local server behind a firewall for communication just inside your group, which I can help with.
-
-Hire me! 
-
+Once you are comforatble with the basics of Geometron, you should explore the tree.php file which has links to various language instances.  From there the next step is to get your own full instance of the Geometron system in your own directory on quantumart.org so that you can edit the code and try things without worrying about other users.  Then to really deploy the system you want to get a instance set up on your own web server and rebrand and retool the whole system for your specific applications, subjects, brand, and group of people.  You can also build a version of this on a local server behind a firewall for communication just inside your group, which I can help with.  
 
 \begin{figure}
 
 \includegraphics[width=\linewidth]{figures/figure_keyboard.png}
 
-\caption{Figure 25. Basic Geometron keyboard layout. Upper case letters on the rows QWERT, ASDF and ZXCV map to the shape table elements 0220-0227, 0230-237, and 0240-0247 respectively by default.  Re-mapping of the letters is carried out by changing the values in the Geometron Hypercube at the addresses from 040 through 0176, which is done by editing the file bytecode/keyboard.txt.}
+\caption{Standard Geometron keyboard layout. Upper case letters on the rows QWERT, ASDF and ZXCV map to the shape table elements 0220-0227, 0230-237, and 0240-0247 respectively by default.  Re-mapping of the letters is carried out by changing the values in the Geometron Hypercube at the addresses from 040 through 0176, which is done by editing the file bytecode/keyboard.txt.}
 \end{figure}
 
-
-
-deep dive into code, improve it
-get web developers to work over the CSS of your instance to brand it and make it fit with the rest of your web presence, build replicator with instructions for how to fork on your page. 
-tell other people who will go back to step 1.
-
-replication is covered in the next white paper.
-applying the concepts of geometron to quantum information processing is covered in the third white paper, quantum modeling in HTML.
-
 Note that as this system propagates through the quantum information community, the flow of code will form a branching tree, with the earliest adopters of the system being the largest and deepest branches.  No special code skills are required for a researcher, group, institution or even lone hobbyist to have this role, just determination and artistic skill.  A motivated individual can have a large impact on the overall structure of the quantum information field by diving deeply into this system, building a large feed of graphics, and spreading those graphics enthusiastically to the rest of the community.  From a business and marketing standpoint, building an instance which people rely on  and which is branded with your company and biased toward the technology you're working on can have a huge global impact on your reach in the field without spending any money other than the time of everyone involved to learn the system.  
-
-
 
 
 \section{Future Work and Implications}
@@ -488,37 +469,6 @@ Try to imagine learning about quantum two level systems without the Bloch sphere
 The work presented in this paper is simply a factory for graphics.  The next of the three white papers that present this work will deal with building a social network based on sharing information created with Geometron.  It is worth noting here that the World Wide Web was originally built by Tim Bernars Lee at CERN specifically to help physicists communicate with one another and to organize their research information.  I believe that it is a rational next step for the Web to build another such extension.  This next white paper will describe the Geomtron Network, which is a self-replicating system that allows for totally free rapid sharing of graphics and integration of math-formatted text with them.  It is integrated into a slide sharing system which can replace PowerPoint for rapid online sharing of graphics, and a paper authoring system which integrates with $\LaTeX$, and a system for making vector graphics from standard function plots we use frequently.  The key idea of this system is that the current most powerful form of communication of technical ideas is simple text fields superposed on top of simple graphics, and that the faster we can make and share these with the minimum possible friction, the more powerful our communication will be.  This whole system is also predicated on the idea that the future of information technology is self replication and evolution, that is the user runs simple code that replicates the whole code base to a server, where they can easily modify the code as they go along, then when they spread it to the next user, their new, modified code base is passed along, so there is no one centralized code base, but a rhizomatic network of flowing code through the network. 
 
 The third of the white papers that makes up the sequence of Geometron for quantum information will discuss how Geometron can be used for creating sequences of discrete geometric actions in Hilbert space as well as in three dimensions just as it does in two dimensions in the system discussed here.  The thesis of this paper is that it should be possible to create Geometron instances for 3d virtual reality modeling of problems which are amenable ot quantum speedup in the browser, build another geomtron instance for the space spanned by the qubits in the quantum processor, then by building direct maps between these spaces to create a user interface for people solving these problems which truly leverages the power of Hilbert space geometry, without relying on models based on classical computer science.   I will describe a system for controlling and programming a quantum processor whereby a group of users simultaneously interact with the processor in real time using a multiplayer virtual reality interface, programming the machine using yet another Geometron instance which describes qubit control pulses using discrete geometry.  Finally, by showing that the output of the quantum processor can also be Geometron glyphs, I will show that this is a path to the self-programming quantum computer.
-
-
-
-point to the other two main white papers: 
-    Self Replicating Graphical Social Network for QI and 
-    Quantum Visualization and Control in HTML
-
-    microblogging for real time technical graphical communication
-
-
-
-
-    Building geometric languages to program quantum computers without the numerical/English based intermediary.
-
-
-
-
-    Decentralized art feed network, I will help you replicate the code on your server, then adapt it for your specific applications, and train your people to use it, build custom keyboards, link to other nodes on Quantum AR
-
-
-
-
-
-Creating direct connections between the web browser and geometry of Hilbert space, to cut out the ``middle man'' between a quantum user and quantum circuit.  Real time quantum controls.    
-
-
-    Create a language for protein structure using a custom GVM, another GVM for a many qubit hilbert space, then building a browser based UI for constructing purely geometric quantum algorithms which map problem space to hilbert space.  
-
-
-    GVM for Galois groups, geometrizing the problems of factorization so that people can develop new algorithms for factoring using GVM.
-
 
 
 \end{document}
